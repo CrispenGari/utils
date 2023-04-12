@@ -1,6 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { decodeFromBase64, encode2Base64 } from "../buffer";
-
+import { decodeFromBase64, encode2Base64 } from "../src";
 describe("Testing buffer utilities", () => {
   test("testing encoding strings", () => {
     const userId: string = "642fe19989416c012ccf062f";
