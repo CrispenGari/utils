@@ -30,16 +30,86 @@ pnpm install @crispengari/utils
 
 ### Usage
 
-After installing this package you can use it as follows:
+After installing this package you can use the different utility functions that comes with this package.
+
+### Examples.
+
+1. encoding strings to `base64`
+
+The `encode2Base64` utility function is used to decode a string representation from `utf8` to `base64` string. Here is how you can use it.
 
 ```ts
-import loadEvTypes from 'node-env-types'
-import process = 'process'
+import { encode2Base64 } from "@crispengari/utils";
+const userId: string = "642fe19989416c012ccf062f";
+console.log({ encodedId: encode2Base64(userId) });
+```
 
-createEnvTypes(process.cwd(), {
-  filename: ".env", // the path name of the file that contains your environmental variables
+Output:
+
+```shell
+{ encodedId: 'NjQyZmUxOTk4OTQxNmMwMTJjY2YwNjJm' }
+```
+
+2. encoding strings to `utf8`
+
+```ts
+import { decodeFromBase64 } from "@crispengari/utils";
+
+console.log({
+  decodedId: decodeFromBase64("NjQyZmUxOTk4OTQxNmMwMTJjY2YwNjJm"),
 });
+```
 
+Output:
+
+```shell
+{ decodedId: '642fe19989416c012ccf062f' }
+```
+
+> Note that you can also decode and encode object-strings from and to `base64` the following are the examples on how it can be done.
+
+```ts
+const user = {
+  id: "642fe19989416c012ccf062f",
+  username: "username",
+  email: "email@gmail.com",
+  age: 23,
+};
+
+console.log({ encodedUser: encode2Base64(JSON.stringify(user)) });
+```
+
+Output:
+
+```shell
+ {
+  encodedUser: 'eyJpZCI6IjY0MmZlMTk5ODk0MTZjMDEyY2NmMDYyZiIsInVzZXJuYW1lIjoidXNlcm5hbWUiLCJlbWFpbCI6ImVtYWlsQGdtYWlsLmNvbSIsImFnZSI6MjN9'
+}
+```
+
+To decode the encoded string of user object you can do it as follows:
+
+```ts
+console.log({
+  decodedUser: JSON.parse(
+    decodeFromBase64(
+      "eyJpZCI6IjY0MmZlMTk5ODk0MTZjMDEyY2NmMDYyZiIsInVzZXJuYW1lIjoidXNlcm5hbWUiLCJlbWFpbCI6ImVtYWlsQGdtYWlsLmNvbSIsImFnZSI6MjN9"
+    )
+  ),
+});
+```
+
+Output:
+
+```shell
+{
+  user: {
+  id: "642fe19989416c012ccf062f",
+  username: "username",
+  email: "email@gmail.com",
+  age: 23,
+  }
+}
 ```
 
 ### Languages
