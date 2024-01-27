@@ -24,12 +24,6 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install latest Yarn
-        run: corepack prepare yarn@stable --activate
-
-      - name: Activate latest Yarn
-        run: yarn set version stable
-
       - name: Installing Packages using Yarn
         run: yarn install
 
