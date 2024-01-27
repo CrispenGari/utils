@@ -1,4 +1,4 @@
-name: Continuous Intergration Workflow
+name: 🚀🔥 Continuous Intergration Workflow
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    name: Unit Tests
+    name: 🚀🚀 Unit Tests
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -18,22 +18,22 @@ jobs:
         working-directory: ./
 
     steps:
-      - name: Checkout Github Repository
+      - name: 🚀 Checkout Github Repository
         uses: actions/checkout@v4
 
-      - name: Setup Nodejs and NPM
+      - name: 🚀 Setup Nodejs and NPM
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Installing Packages using Yarn
+      - name: 🚀 Installing Packages using Yarn
         run: yarn install
 
-      - name: Running Tests
+      - name: 🚀 Running Tests
         run: yarn test
 
   linting:
-    name: Code Linting
+    name: 🚀🚀 Code Linting
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -41,15 +41,15 @@ jobs:
         working-directory: ./
 
     steps:
-      - name: Checkout Github Repository
+      - name: 🚀 Checkout Github Repository
         uses: actions/checkout@v4
 
-      - name: Setup Nodejs and NPM
+      - name: 🚀 Setup Nodejs and NPM
         uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: Installing Packages using Yarn
+      - name: 🚀 Installing Packages using Yarn
         run: yarn install
 
-      - name: Linting and building
+      - name: 🚀 Linting and building
         run: yarn lint && npx standard -v

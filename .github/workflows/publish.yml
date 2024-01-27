@@ -1,14 +1,13 @@
-name: Publish Package (@crispengari/utils)
+name: 🚀🔥 Publish Package (@crispengari/utils)
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 concurrency: ${{ github.workflow}}-${{github.ref}}
 
 jobs:
-  build:
-    name: Building the Package
+  release:
+    name: 🚀🚀 Building the Package
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -16,22 +15,22 @@ jobs:
         working-directory: ./
 
     steps:
-      - name: Checkout Github Repository
+      - name: 🚀 Checkout Github Repository
         uses: actions/checkout@v4
 
-      - name: Setup Nodejs and NPM
+      - name: 🚀 Setup Nodejs and NPM
         uses: actions/setup-node@v4
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org
 
-      - name: Installing Packages using Yarn
+      - name: 🚀 Installing Packages using Yarn
         run: yarn install
 
-      - name: Linting and building
+      - name: 🚀 Linting and building
         run: yarn lint && yarn build
 
-      - name: Publish
+      - name: 🚀 Publish
         run: npm publish --access public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
