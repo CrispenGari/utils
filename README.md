@@ -112,6 +112,30 @@ Output:
 }
 ```
 
+3. Compressing `json` objects
+
+You can compress a json object using the `compressJSON` the following is an example on how you can do it
+
+```ts
+import { compressJSON } from "@crispengari/utils";
+const inputData = { key1: "value1", key2: [1, 2, 3], key3: { nested: true } };
+const compressedString = compressJSON(inputData);
+console.log(compressedString);
+// Output: "eJzLSM3JyVcozy/KSQEAGwQF"
+```
+
+3. Decompressing back to `json` objects
+
+You can decompress a compressed object using the `decompressJSON` function the following is an example on how you can do it
+
+```ts
+import { decompressJSON } from "@crispengari/utils";
+const compressedString = "eJzLSM3JyVcozy/KSQEAGwQF";
+const decompressedData = decompressJSON(compressedString);
+console.log(decompressedData);
+// Output: { key1: "value1", key2: [1, 2, 3] }
+```
+
 ### Languages
 
 This package is intended to be used by developers who codes in `typescript` and or `javascript`.

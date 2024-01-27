@@ -1,13 +1,14 @@
 {
   "name": "@crispengari/utils",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Thi is a simple node package, for utility functions that I normally use in my projects.",
-  "main": "lib/index.js",
-  "types": "lib",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "watch": "tsc -w",
-    "build": "tsc -p .",
-    "test": "jest"
+    "test": "jest --detectOpenHandles",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "lint": "tsc && npx standard --fix"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,9 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.21.4",
+    "@changesets/cli": "^2.27.1",
     "@types/node": "^18.15.11",
+    "pako": "^2.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
@@ -31,8 +34,31 @@
   },
   "homepage": "https://github.com/CrispenGari/utils#readme",
   "devDependencies": {
-    "@babel/preset-typescript": "^7.21.4",
+    "@babel/preset-typescript": "^7.23.3",
+    "@types/pako": "^2.0.3",
     "jest": "^29.5.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "standard": "^17.1.0",
+    "tsup": "^8.0.1"
+  },
+  "resolutions": {
+    "strip-ansi": "6.0.1"
+  },
+  "peerDependencies": {
+    "pako": "^2.x"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "standard": {
+    "env": [
+      "mocha",
+      "commonjs",
+      "node",
+      "jest"
+    ]
   }
 }
