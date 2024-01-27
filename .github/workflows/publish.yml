@@ -31,7 +31,7 @@ jobs:
         run: yarn set version stable
 
       - name: Installing Packages using Yarn
-        run: yarn
+        run: yarn install
 
       - name: Linting and building
         run: yarn lint && yarn build
