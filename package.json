@@ -1,45 +1,45 @@
 {
   "name": "@crispengari/utils",
   "version": "2.0.1",
-  "description": "Thi is a simple node package, for utility functions that I normally use in my projects.",
+  "description": "This is a simple node package, for utility functions that I normally use in my projects.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "private": "false",
   "scripts": {
     "test": "jest --detectOpenHandles",
     "build": "tsup src/index.ts --format esm,cjs --dts",
-    "lint": "tsc && npx standard --fix"
+    "lint": "tsc && npx standard --fix",
+    "ci": "yarn lint && yarn test && yarn build",
+    "release": "yarn lint && yarn test && yarn build && changeset publish"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CrispenGari/utils.git"
   },
-  "dependencies": {
-    "@babel/preset-env": "^7.21.4",
-    "@changesets/cli": "^2.27.1",
-    "@types/node": "^18.15.11",
-    "pako": "^2.1.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
-  },
   "keywords": [
     "typescript",
     "utilities",
-    "node"
+    "node",
+    "utils"
   ],
-  "author": "CrispenGari",
+  "author": "Crispen Gari",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CrispenGari/utils/issues"
   },
   "homepage": "https://github.com/CrispenGari/utils#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.23.9",
     "@babel/preset-typescript": "^7.23.3",
+    "@changesets/cli": "^2.27.1",
+    "@types/node": "^20.11.9",
     "@types/pako": "^2.0.3",
     "jest": "^29.5.0",
-    "nodemon": "^2.0.22",
+    "pako": "^2.1.0",
     "standard": "^17.1.0",
-    "tsup": "^8.0.1"
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
   },
   "resolutions": {
     "strip-ansi": "6.0.1"
